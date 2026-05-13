@@ -1,0 +1,48 @@
+{
+  "schemaVersion": 1,
+  "registryVersion": "1.0.0",
+  "models": {
+    "vision.yolo11n": {
+      "id": "vision.yolo11n",
+      "family": "vision",
+      "task": "object-detection",
+      "runtime": "onnxruntime",
+      "filename": "yolo11n.onnx",
+      "release": "v1.0.0",
+      "sizeBytes": 10930182,
+      "sha256": "TODO",
+      "requiredForV1": true,
+      "bundledByDefault": true,
+      "fallbackBehavior": "auto-centered-crop",
+      "notes": "Used for local subject-aware crop suggestions."
+    },
+    "speech.whisper-base": {
+      "id": "speech.whisper-base",
+      "family": "speech",
+      "task": "transcription",
+      "runtime": "whisper.cpp",
+      "filename": "ggml-base.bin",
+      "release": "v1.0.0",
+      "sizeBytes": 147000000,
+      "sha256": "TODO",
+      "requiredForV1": false,
+      "bundledByDefault": false,
+      "fallbackBehavior": "cloud-or-manual-transcription",
+      "notes": "Fast local transcription option for weaker machines."
+    },
+    "speech.whisper-small": {
+      "id": "speech.whisper-small",
+      "family": "speech",
+      "task": "transcription",
+      "runtime": "whisper.cpp",
+      "filename": "ggml-small.bin",
+      "release": "v1.0.0",
+      "sizeBytes": 466000000,
+      "sha256": "TODO",
+      "requiredForV1": false,
+      "bundledByDefault": false,
+      "fallbackBehavior": "cloud-or-manual-transcription",
+      "notes": "Recommended local transcription balance for V1/V2."
+    }
+  }
+}

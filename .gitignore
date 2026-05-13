@@ -1,0 +1,18 @@
+# Model binaries — these live as GitHub Release assets, NEVER in git history.
+*.onnx
+*.bin
+*.gguf
+*.pt
+*.safetensors
+
+# OS junk
+.DS_Store
+
+# Editor caches
+.vscode/
+.idea/
+*.swp
+
+# Local scratch
+/tmp/
+/_scratch/
