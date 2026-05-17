@@ -14,15 +14,26 @@ YOLOv11-nano is the smallest model in the YOLOv11 family. KroxAdapt Studio uses 
 
 Inference runs on the user's CPU via `onnxruntime` — no GPU required, no network round-trip.
 
+## Product feature
+
+**Framing / scene intelligence** — powers "Auto-frame subject" for vertical, square, and landscape exports.
+
 ## Why this model
 
-- **Tiny footprint** (~11 MB) — bundles cleanly with the installer.
+- **Tiny footprint** (~10 MB) — bundles cleanly with the installer.
 - **CPU-friendly** — runs in milliseconds per frame on modern laptops.
 - **General COCO classes** — covers the common subjects (person, animal, vehicle, food, etc.) that creative editors actually crop around.
 
-## Source
+## Provenance
 
-The `.onnx` weights ship here as a release asset and are mirrored from the [`Xenova/yolov11`](https://huggingface.co/Xenova/yolov11) ONNX export on Hugging Face. We re-host them so the desktop app never depends on a third-party CDN at runtime.
+The `.onnx` weights ship here as a release asset and are **exported locally from the official `yolo11n.pt`** published at [`Ultralytics/YOLO11`](https://huggingface.co/Ultralytics/YOLO11) on Hugging Face, using:
+
+```
+ultralytics==8.4.49
+yolo export model=yolo11n.pt format=onnx opset=12 simplify=False
+```
+
+The export is reproducible from the same `.pt` and the same `ultralytics` version. We re-host the resulting `.onnx` so the desktop app never depends on a third-party CDN at runtime and never has to ship the PyTorch toolchain.
 
 ## How KroxAdapt Studio uses it
 
@@ -37,7 +48,7 @@ If the model is unavailable for any reason (file missing, runtime failure, sandb
 ## Future
 
 - V2 may add larger YOLOv11 variants (`yolo11s`, `yolo11m`) as optional upgrades for users on stronger hardware.
-- May add segmentation variants (`yolo11n-seg`) for cleaner foreground/background separation.
+- Segmentation variant (`yolo11n-seg`) is on the roadmap for layout-safety / mask-aware QA — see `vision/yolo11n-seg.md`.
 
 ## Surface in app
 

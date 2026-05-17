@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "registryVersion": "1.0.0",
+  "registryVersion": "1.1.0",
   "models": {
     "vision.yolo11n": {
       "id": "vision.yolo11n",
@@ -43,6 +43,34 @@
       "bundledByDefault": false,
       "fallbackBehavior": "cloud-or-manual-transcription",
       "notes": "Recommended local transcription balance for V1/V2."
+    },
+    "speech.whisper-medium": {
+      "id": "speech.whisper-medium",
+      "family": "speech",
+      "task": "transcription",
+      "runtime": "whisper.cpp",
+      "filename": "ggml-medium.bin",
+      "release": "v1.1.0",
+      "sizeBytes": 1533763059,
+      "sha256": "6c14d5adee5f86394037b4e4e8b59f1673b6cee10e3cf0b11bbdbee79c156208",
+      "requiredForV1": false,
+      "bundledByDefault": false,
+      "fallbackBehavior": "cloud-or-manual-transcription",
+      "notes": "Pro-tier transcription: stronger multilingual and noisy-audio accuracy at higher CPU and disk cost."
+    },
+    "vision.yolo11n-seg": {
+      "id": "vision.yolo11n-seg",
+      "family": "vision",
+      "task": "instance-segmentation",
+      "runtime": "onnxruntime",
+      "filename": "yolo11n-seg.onnx",
+      "release": "v1.1.0",
+      "sizeBytes": 11719655,
+      "sha256": "c5ad8488fdc3538938ac131d16faabb9433c920abe30dcbfd1c63194525c8454",
+      "requiredForV1": false,
+      "bundledByDefault": false,
+      "fallbackBehavior": "bbox-only-layout-safety",
+      "notes": "Instance masks for layout-safety, overlap QA, and mask-aware crop refinement. Falls back to bounding-box-only behavior using vision.yolo11n."
     }
   }
 }
